@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml" class="gr__onlinetestseriesmadeeasy_in"><style type="text/css" id="night-mode-pro-style"></style><link type="text/css" rel="stylesheet" id="night-mode-pro-link"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Online MCQ Exam</title><link rel="shortcut icon" href="student/images/favicon.ico">
+{% load static %}
+
+<link href="{% static 'css/report/roboto.css' %}" rel="stylesheet" media="all" type="text/css">
+<link href="{% static 'css/report/stylesheet.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/report/screens.css' %}" rel="stylesheet" media="all" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/exams.css' %}">
+    <link rel="stylesheet" href="{% static 'css/exams.css' %}">
+     <link rel="stylesheet" href="{% static 'css/exam1.css' %}">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script>
+<body style="margin-top: -80px;">
+<div class="eliment"><div class="middle-raw">
+  
+<div class="sidebar bg-info" style="margin-top: -80px; padding-right: 100;"><div class="sidenavigation">
+<div class="leftprofile_detail">
+
+<h2 class="student_Name">{{ ur }}</h2> <div class="black-bold" style="margin-top: 5px;">Course: <span class="grayinfo" style="color:white;">{{ exam_name }}</span></div>
+<div class="grayinfo" style="color:white;">Bachelor of Science Information Technology</div>
+</div>
+<ul>
+<li id=""><a href="/home" class="" style="color:white;">logout</a>
+</li>
+<li id=""><a href="/exam?name={{ exam_name }}" class="" style="color:white;">My Test</a>
+</li>
+<li id=""><a href="/report"  class="" style="color:white;">Report</a>
+</li>
+</ul>
+
+</div>
+</div></div></div>
+<div class="eliment">
+<div class="middle-raw">
+<div class="right-coloumn">
+
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+<html>
+<head><title>Report</title>
+</head>
+<body>
+<div class="content">
+{% block content %}
+<div class="content-center">
+<div class="pagename">Reports</div>
+<div class="tablecontent" id="panel1" style="display:block !important">
+<div class="fixed"> <div class="cardinr">
+<div class="taketest_main">
+<div class="taketesthdr">
+ <div class="testdate_dash">
+<h3> 06</h3>
+<span> Jan</span>
+</div>
+<div class="testdetails_dash">
+<h3 class="mt5">Demo Full Syllabus Test : {{name}}</h3>
+</div>
+
+</div>
+
+<div class="taketest_footer reports_footer">
+    <div class="testinrdiv">
+    <div class="grayinfo" title="Right Question">R.Q.</div>
+    <h3>0</h3>
+    </div>
+    <div class="testinrdiv">
+    <div class="grayinfo" title="Wrong Question">Max.</div>
+    <h3>100</h3>
+    </div>
+    <div class="testinrdiv">
+    <div class="grayinfo" title="Wrong Question">Total Marks.</div>
+    <h3>20</h3>
+    </div>
+<div class="testinrdiv">
+<a class="viewreport_btn viewreport_test_btn" title="View Reports" href="/view_result">VIEW REPORTS</a> </div>
+</div>
+</div>
+</div>
+</div>
+<div id="sort-pagination">
+<ul>
+<div class="abbreviation">R.Q - Right Question | Max. - Maximum Marks | T.M - Total Marks</div>
+</ul>
+</div>
+</div>
+<div class="tablecontent" id="panel2" style="display:none !important">
+<div class="fixed"><div class="test-available report"><strong>No IES Test Report Available</strong></div>
+
+</div>
+</div>
+</div>
+    {% endblock %}
+</div>
+</body>
+</html>

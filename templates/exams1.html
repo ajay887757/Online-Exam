@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+<html>
+<body>
+
+{% block content %}
+    {% load static %}
+<div class="pagename">Take a Test</div>
+</div>
+{% for exams in exam %}
+<div style="color: #535352;
+    font-weight: normal;
+    line-height: 14pt;"> <div class="cardinr test-container">
+<div class="taketest_main">
+<div class="taketesthdr">
+<div class="testdate_dash">
+<h3> 06 </h3>
+<span>Jan</span>
+</div>
+<div class="testdetails_dash">
+<h3 class="mt5"><strong>Demo Full Syllabus Test : {{ exam_name }}</strong></h3>
+</div>
+
+</div>
+<div class="taketest_footer">
+<div class="testinrdiv">
+<div>Total Question</div>
+<h3>{{ exams.no_of_ques }}</h3>
+</div>
+<div class="testinrdiv">
+<div>Total Marks</div>
+<h3>{{ exams.total_marks }}</h3>
+</div>
+<div class="testinrdiv">
+<div class="test_lastinrdash">
+<div>Duration</div>
+<h3>{{ exams.time_duration }}</h3>
+</div>
+ </div>
+<div class="viewreport_btn start_test_btn "><a href={% url "startexam" %}> Start Test</a></div>
+</div>
+</div>
+</div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
+</body>
+</html>

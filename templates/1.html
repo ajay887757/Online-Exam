@@ -1,0 +1,170 @@
+<html xmlns="http://www.w3.org/1999/xhtml" class="gr__freeonlinetest_in"><style type="text/css" id="night-mode-pro-style"></style><link type="text/css" rel="stylesheet" id="night-mode-pro-link"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="refresh" content="count url=https://www.programiz.com/java-programming/hello-world">
+<style>
+  .time{
+    margin-left: 1050px;
+  }
+</style>
+{% load static %}
+
+{% block body %}
+<center><h1>MCQ Online exam</h1></center>
+<br><br>
+
+<script>
+  function show_time(){
+var time="00:15:00";
+timer_div=document.getElementById("Timer_div");
+console.log(timer_div);
+applyCss(timer_div);
+timer_div.innerHTML=time;
+var count=0;
+my_timer=setInterval(function(){
+count++;
+console.log(count);
+var hr =0; var min=0; sec=0;
+var time_up=false;
+t=time.split(":")
+console.log("t",t);
+hr=parseInt(t[0]);
+min=parseInt(t[1]);
+sec=parseInt(t[2]);
+if (sec==0){
+  if (min>0){
+    sec=59;
+    min--;
+  }
+  else if(hr>0){
+    min=59;
+    sec=59;
+    hr--;
+
+  }
+  else {
+    time_up=true;
+  }
+}
+else{
+  sec--;
+}
+if (hr<10){
+  hr="0"+hr;
+}
+if (min<10){
+  min="0"+min;
+}
+if (sec<10){
+  sec="0"+sec;
+}
+time=hr+":"+min+":"+sec;
+if (time_up){
+  time="Time Up"
+  location.replace("/report")
+}
+timer_div=document.getElementById("Timer_div");
+timer_div.innerHTML=time;
+if (time_up){
+  clearInterval(my_timer)
+}
+
+},1000);
+  }
+
+  function applyCss(timer_div){
+    timer_div.style.fontSize="22px";
+    timer_div.style.color="teal";
+    timer_div.style.fontWeight="bold";
+    timer_div.style.width="150px";
+    timer_div.style.padding="10px";
+    timer_div.style.textAlign="Center";
+    timer_div.style.border="2px solid green";
+    
+    
+  }
+</script>
+<form action="/report" method="get">
+
+<marquee><p><strong><span style="color: #ff0000;">Directions:</span> </strong>What should come in place of question mark (?) in the following questions?</p>
+<p>&nbsp;</p> </marquee>
+<body onload="show_time()">
+  <header>
+<div id="Timer_div" class="time">
+
+</div>
+</header>
+{% for que in ques %}
+
+
+
+  {% csrf_token %}
+
+   <div class="q_dv">
+        <table>
+              <tbody><tr>
+            <td align="left" valign="top"><p>{{ forloop.counter}}</p></td>
+            <td align="left" valign="top" class="questionData">
+<p>{{ que.question }}</p>
+
+          <div class="ans_dv">
+            <input type="hidden" class="curr_ans" value="2">
+        <table class="options" width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tbody><tr>
+            <td width="4%" valign="top"><input type="radio" name="{{ forloop.counter }}" qno="1" id="answec1_1" value="1"></td>
+            <td width="96%" valign="top"><p style="width:100%; margin:0px; padding:0px 0px 20px 0px; font:normal 13px Ebrima, Arial, Helvetica, sans-serif;">
+            <span style="color:#00F; font-size:14px;  font-family:Embrima;">A) </span>
+      <span class="answerData">{{ que.option1 }}</span>
+      </p></td>
+          </tr>
+            </tbody></table>
+            <input type="hidden" class="curr_ans" value="2">
+        <table class="options" width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tbody><tr>
+            <td width="4%" valign="top"><input type="radio" name="{{ forloop.counter }}" qno="1" id="answec1_2" value="2"></td>
+            <td width="96%" valign="top"><p style="width:100%; margin:0px; padding:0px 0px 20px 0px; font:normal 13px Ebrima, Arial, Helvetica, sans-serif;">
+            <span style="color:#00F; font-size:14px;  font-family:Embrima;">B) </span>
+      <span class="answerData correctData">{{ que.option2 }}</span>
+      </p></td>
+          </tr>
+            </tbody></table>
+            <input type="hidden" class="curr_ans" value="2">
+        <table class="options" width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tbody><tr>
+            <td width="4%" valign="top"><input type="radio" name="{{ forloop.counter }}" qno="1" id="answec1_3" value="3"></td>
+            <td width="96%" valign="top"><p style="width:100%; margin:0px; padding:0px 0px 20px 0px; font:normal 13px Ebrima, Arial, Helvetica, sans-serif;">
+            <span style="color:#00F; font-size:14px;  font-family:Embrima;">C) </span>
+      <span class="answerData">{{ que.option3 }}</span>
+      </p></td>
+          </tr>
+            </tbody></table>
+            <input type="hidden" class="curr_ans" value="2">
+        <table class="options" width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tbody><tr>
+            <td width="4%" valign="top"><input type="radio" name="{{ forloop.counter }}" qno="1" id="answec1_4" value="4"></td>
+            <td width="96%" valign="top"><p style="width:100%; margin:0px; padding:0px 0px 20px 0px; font:normal 13px Ebrima, Arial, Helvetica, sans-serif;">
+            <span style="color:#00F; font-size:14px;  font-family:Embrima;">D) </span>
+      <span class="answerData">{{ que.option4 }}</span>
+</p></td>
+</tr>
+</tbody>
+        </table>
+          </div>
+            </td>
+            </tr>
+              </tbody>
+        </table>
+   </div>
+{% endfor %}
+{% endblock %}
+</div>
+</div>
+<input type="submit" name="Submit" id="Submit"  value="Submit">
+</form>
+  <br><br><br>
+</body>
+</html>
